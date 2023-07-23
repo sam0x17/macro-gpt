@@ -12,7 +12,9 @@ repository = "https://github.com/sam0x17/macro-gpt"
 proc-macro = true
 
 [dependencies]
-gptrust_api = "0.1.4"
+chatgpt-functions = "0.3.6"
 syn = { version = "2", features = ["full"] }
 quote = "1"
 proc-macro2 = "1"
+futures = "0.3"
+tokio = { version = "1.29", features = ["full"] }
