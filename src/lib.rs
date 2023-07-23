@@ -1,7 +1,6 @@
 use chatgpt_functions::chat_gpt::ChatGPTBuilder;
 use proc_macro::TokenStream;
 use proc_macro2::{Span, TokenStream as TokenStream2};
-use quote::quote;
 use syn::{Error, Result};
 use tokio::runtime::Runtime;
 
@@ -39,7 +38,6 @@ fn gpt_internal(tokens: impl Into<TokenStream2>) -> Result<TokenStream2> {
     let future = gpt.completion_managed(prompt);
     match rt.block_on(future) {
         Ok(res) => {
-            println!("{:?}", res);
             let Some(content) = res.content() else {
                 return Err(Error::new(
                     Span::call_site(),
@@ -51,6 +49,7 @@ fn gpt_internal(tokens: impl Into<TokenStream2>) -> Result<TokenStream2> {
             };
             let content = content.replace("```rust", "");
             let content = content.replace("```", "");
+            println!("generated code:\n{}", content);
             return syn::parse_str(content.as_str());
         }
         Err(err) => return Err(Error::new(Span::call_site(), err.to_string())),
