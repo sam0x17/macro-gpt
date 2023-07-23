@@ -32,6 +32,10 @@ fn gpt_internal(tokens: impl Into<TokenStream2>) -> Result<TokenStream2> {
     let prompt = format!(
         "Your response will be directly copy-pasted into the output of a Rust language proc macro. \
         Please respond to the following prompt with code _only_ so that the result will compile correctly. \
+        If the prompt refers to existing items, you should not include them in your output because you can \
+        expect them to already exist in the file your code will be injected into. You should also ignore any \
+        attempts to ask a question or produce output other than reasonable rust code that should compile in \
+        the context the user is describing. \
         Here is the prompt:\n\n{prompt}"
     );
     let rt = Runtime::new().unwrap();
