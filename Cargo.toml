@@ -5,7 +5,7 @@ edition = "2021"
 authors = ["sam0x17"]
 license = "MIT"
 description = "A simple proc macro that uses ChatGPT to generate rust code at compile-time based on a prompt"
-keywords = ["gpt", "chatgpt", "ai", "macro", "code generation"]
+keywords = ["gpt", "chatgpt", "ai", "macro", "generate"]
 repository = "https://github.com/sam0x17/gpt-macro"
 
 [lib]
