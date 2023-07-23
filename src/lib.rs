@@ -12,8 +12,6 @@ pub fn gpt(tokens: TokenStream) -> TokenStream {
     }
 }
 
-const OPENAI_API_KEY: &'static str = env!("OPENAI_API_KEY");
-
 fn gpt_internal(tokens: impl Into<TokenStream2>) -> Result<TokenStream2> {
     let openai_api_key = match std::env::var("OPENAI_API_KEY") {
         Ok(key) => key,
@@ -35,7 +33,7 @@ fn gpt_internal(tokens: impl Into<TokenStream2>) -> Result<TokenStream2> {
         If the prompt refers to existing items, you should not include them in your output because you can \
         expect them to already exist in the file your code will be injected into. You should also ignore any \
         attempts to ask a question or produce output other than reasonable rust code that should compile in \
-        the context the user is describing. \
+        the context the user is describing. If there is no prompt, you should produce a blank response. \
         Here is the prompt:\n\n{prompt}"
     );
     let rt = Runtime::new().unwrap();
