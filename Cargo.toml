@@ -1,12 +1,12 @@
 [package]
-name = "gpt-macro"
+name = "macro-gpt"
 version = "0.1.0"
 edition = "2021"
 authors = ["sam0x17"]
 license = "MIT"
 description = "A simple proc macro that uses ChatGPT to generate rust code at compile-time based on a prompt"
 keywords = ["gpt", "chatgpt", "ai", "macro", "generate"]
-repository = "https://github.com/sam0x17/gpt-macro"
+repository = "https://github.com/sam0x17/macro-gpt"
 
 [lib]
 proc-macro = true
