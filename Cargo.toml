@@ -1,0 +1,13 @@
+[package]
+name = "gpt-macro"
+version = "0.1.0"
+edition = "2021"
+authors = ["sam0x17"]
+license = "MIT"
+description = "A simple proc macro that uses ChatGPT to generate rust code at compile-time based on a prompt"
+keywords = ["gpt", "chatgpt", "ai", "macro", "code generation"]
+
+[lib]
+proc-macro = true
+
+[dependencies]
