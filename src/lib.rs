@@ -1,7 +1,6 @@
 use chatgpt_functions::chat_gpt::ChatGPTBuilder;
 use proc_macro::TokenStream;
 use proc_macro2::{Span, TokenStream as TokenStream2};
-use quote::{quote, ToTokens};
 use regex::Regex;
 use std::path::PathBuf;
 use syn::{parse2, parse_file, spanned::Spanned, visit::Visit, Error, LitStr, Macro, Result};
